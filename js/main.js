@@ -15,13 +15,20 @@ document.addEventListener('DOMContentLoaded', function() {
     setupProductTabs();
     setupQuantityButtons();
     setupAccessibility();
+
+    // Popravi linkove nakon učitavanja komponenti
+    setTimeout(fixLinks, 100);
 });
 
 // Funkcija za učitavanje komponenti (header, footer)
 function loadComponent(componentName, targetElement) {
     if (!targetElement) return;
 
-    fetch(`/components/${componentName}.html`)
+    // Provjeri jesmo li u poddirektoriju (npr. /pages/)
+    const isInSubdirectory = window.location.pathname.includes('/pages/');
+    const basePath = isInSubdirectory ? '../' : './';
+
+    fetch(`${basePath}components/${componentName}.html`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -178,7 +185,11 @@ function loadCookieBanner() {
         cookieBannerDiv.setAttribute('aria-describedby', 'cookie-description');
 
         // Učitaj sadržaj cookie bannera
-        fetch('/components/cookie-banner.html')
+        // Provjeri jesmo li u poddirektoriju (npr. /pages/)
+        const isInSubdirectory = window.location.pathname.includes('/pages/');
+        const basePath = isInSubdirectory ? '../' : './';
+
+        fetch(`${basePath}components/cookie-banner.html`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -311,4 +322,43 @@ function setupAccessibility() {
             }
         });
     });
+}
+
+// Funkcija za popravak linkova ovisno o lokaciji stranice
+function fixLinks() {
+    // Provjeri jesmo li u poddirektoriju (npr. /pages/)
+    const isInSubdirectory = window.location.pathname.includes('/pages/');
+
+    if (isInSubdirectory) {
+        // Popravi linkove u headeru
+        fixLink('home-link', '../index.html');
+        fixLink('products-link', 'proizvodi.html');
+        fixLink('about-link', 'o-nama.html');
+        fixLink('contact-link', 'kontakt.html');
+        fixLink('login-link', 'prijava.html');
+        fixLink('cart-link', 'kosarica.html');
+
+        // Popravi linkove u footeru
+        fixLink('footer-home-link', '../index.html');
+        fixLink('footer-products-link', 'proizvodi.html');
+        fixLink('footer-about-link', 'o-nama.html');
+        fixLink('footer-contact-link', 'kontakt.html');
+        fixLink('footer-faq-link', 'faq.html');
+        fixLink('footer-faq-link2', 'faq.html');
+        fixLink('footer-delivery-link', 'dostava.html');
+        fixLink('footer-returns-link', 'povrati.html');
+        fixLink('footer-terms-link', 'uvjeti-koristenja.html');
+        fixLink('footer-privacy-link', 'politika-privatnosti.html');
+
+        // Popravi link u cookie banneru
+        fixLink('privacy-link', 'politika-privatnosti.html');
+    }
+}
+
+// Pomoćna funkcija za popravak pojedinačnog linka
+function fixLink(id, newHref) {
+    const link = document.getElementById(id);
+    if (link) {
+        link.setAttribute('href', newHref);
+    }
 }
