@@ -1,0 +1,249 @@
+/* Accessibility Styles */
+
+/* Focus styles */
+:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
+  z-index: 9999;
+  transition: top 0.3s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Improved form elements */
+input, textarea, select, button {
+  font-size: 16px; /* Prevents iOS zoom on focus */
+}
+
+/* Improved button and link accessibility */
+button, .btn, a {
+  cursor: pointer;
+}
+
+button:disabled, .btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Improved form labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Required field indicator */
+.required::after {
+  content: " *";
+  color: var(--error-color);
+}
+
+/* Error messages */
+.error-message {
+  color: var(--error-color);
+  font-size: var(--font-size-small);
+  margin-top: 5px;
+}
+
+/* Success messages */
+.success-message {
+  color: var(--success-color);
+  font-size: var(--font-size-small);
+  margin-top: 5px;
+}
+
+/* Improved table accessibility */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  font-weight: var(--font-weight-bold);
+}
+
+th, td {
+  padding: 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Improved contrast for placeholder text */
+::placeholder {
+  color: #767676; /* WCAG AA compliant */
+  opacity: 1;
+}
+
+/* Improved contrast for disabled elements */
+[disabled], [aria-disabled="true"] {
+  opacity: 0.7;
+}
+
+/* Improved focus for checkboxes and radio buttons */
+input[type="checkbox"]:focus + label,
+input[type="radio"]:focus + label {
+  text-decoration: underline;
+}
+
+/* Improved keyboard navigation for interactive elements */
+a:focus, button:focus, input:focus, select:focus, textarea:focus, [tabindex]:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Improved visibility for current page in navigation */
+.main-nav a.active {
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+}
+
+/* Improved visibility for form validation */
+input:invalid, textarea:invalid, select:invalid {
+  border-color: var(--error-color);
+}
+
+/* Improved visibility for required fields */
+input:required, textarea:required, select:required {
+  border-left: 4px solid var(--primary-color);
+}
+
+/* Improved visibility for form elements on focus */
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+}
+
+/* Improved visibility for buttons on hover and focus */
+.btn:hover, .btn:focus {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Improved visibility for links */
+a {
+  text-decoration: underline;
+}
+
+.btn, nav a, .logo a, .footer-column a, .product-card a, .social-icons a {
+  text-decoration: none;
+}
+
+/* Improved visibility for icons that convey meaning */
+.icon-with-text i {
+  margin-right: 5px;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Improved visibility for current state */
+[aria-current="page"] {
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+}
+
+/* Improved visibility for expanded/collapsed state */
+[aria-expanded="true"] .expand-icon::before {
+  content: "\f077"; /* FontAwesome chevron up */
+}
+
+[aria-expanded="false"] .expand-icon::before {
+  content: "\f078"; /* FontAwesome chevron down */
+}
+
+/* Improved visibility for selected state */
+[aria-selected="true"] {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Improved visibility for disabled state */
+[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Improved visibility for required state */
+[aria-required="true"]::after {
+  content: " *";
+  color: var(--error-color);
+}
+
+/* Improved visibility for invalid state */
+[aria-invalid="true"] {
+  border-color: var(--error-color);
+}
+
+/* Improved visibility for error messages */
+[role="alert"] {
+  color: var(--error-color);
+  font-weight: var(--font-weight-bold);
+  padding: 10px;
+  border: 1px solid var(--error-color);
+  border-radius: var(--border-radius-sm);
+  margin: 10px 0;
+}
+
+/* Improved visibility for success messages */
+[role="status"] {
+  color: var(--success-color);
+  font-weight: var(--font-weight-bold);
+  padding: 10px;
+  border: 1px solid var(--success-color);
+  border-radius: var(--border-radius-sm);
+  margin: 10px 0;
+}
+
+/* Improved visibility for tooltips */
+[role="tooltip"] {
+  position: absolute;
+  padding: 5px 10px;
+  background-color: var(--dark-background);
+  color: white;
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-small);
+  z-index: 1000;
+  max-width: 200px;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  * {
+    border-color: ButtonText;
+  }
+  
+  a, button, input, select, textarea {
+    forced-color-adjust: none;
+  }
+  
+  .btn-primary {
+    background-color: Highlight;
+    color: HighlightText;
+  }
+  
+  .btn-outline {
+    border: 1px solid ButtonText;
+  }
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prijava / Registracija - TechShop</title>
+    <meta name="description" content="Prijavite se na svoj račun ili kreirajte novi korisnički račun.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/fixes.css">
+</head>
+<body>
+    <!-- Header će biti učitan putem JavaScripta -->
+    <header></header>
+
+    <main class="fade-in">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Moj račun</h1>
+                <div class="breadcrumbs">
+                    <a href="../index.html">Početna</a> &gt; <span>Prijava / Registracija</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login/Register Section -->
+        <section class="account-section">
+            <div class="container">
+                <div class="account-container">
+                    <!-- Login/Register Tabs -->
+                    <div class="account-tabs">
+                        <button class="account-tab active" data-tab="login">Prijava</button>
+                        <button class="account-tab" data-tab="register">Registracija</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <div class="account-form-container active" id="login">
+                        <form class="account-form login-form">
+                            <div class="form-group">
+                                <label for="login-email">Email adresa *</label>
+                                <input type="email" id="login-email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="login-password">Lozinka *</label>
+                                <div class="password-input">
+                                    <input type="password" id="login-password" required>
+                                    <button type="button" class="toggle-password" aria-label="Prikaži/sakrij lozinku">
+                                        <i class="far fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label>
+                                    <input type="checkbox" id="remember-me">
+                                    Zapamti me
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Prijavi se</button>
+
+                            <div class="forgot-password">
+                                <a href="#" class="forgot-link">Zaboravili ste lozinku?</a>
+                            </div>
+
+                            <div class="account-divider">
+                                <span>Ili se prijavite putem</span>
+                            </div>
+                            <div class="social-login">
+                                <button type="button" class="social-login-btn">
+                                    <i class="fab fa-facebook-f"></i> Facebook
+                                </button>
+                                <button type="button" class="social-login-btn">
+                                    <i class="fab fa-google"></i> Google
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Register Form -->
+                    <div class="account-form-container" id="register">
+                        <form class="account-form register-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="register-first-name">Ime *</label>
+                                    <input type="text" id="register-first-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-last-name">Prezime *</label>
+                                    <input type="text" id="register-last-name" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="register-email">Email adresa *</label>
+                                <input type="email" id="register-email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="register-password">Lozinka *</label>
+                                <div class="password-input">
+                                    <input type="password" id="register-password" required>
+                                    <button type="button" class="toggle-password" aria-label="Prikaži/sakrij lozinku">
+                                        <i class="far fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="strength-meter">
+                                        <div class="strength-meter-fill" data-strength="0"></div>
+                                    </div>
+                                    <div class="strength-text">Jačina lozinke: <span>Slaba</span></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="register-confirm-password">Potvrdite lozinku *</label>
+                                <div class="password-input">
+                                    <input type="password" id="register-confirm-password" required>
+                                    <button type="button" class="toggle-password" aria-label="Prikaži/sakrij lozinku">
+                                        <i class="far fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label>
+                                    <input type="checkbox" id="terms-agree" required>
+                                    Slažem se s <a href="uvjeti-koristenja.html">uvjetima korištenja</a> i <a href="politika-privatnosti.html">politikom privatnosti</a> *
+                                </label>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label>
+                                    <input type="checkbox" id="newsletter-subscribe">
+                                    Želim primati obavijesti o novostima i posebnim ponudama
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Registriraj se</button>
+
+                            <div class="account-divider">
+                                <span>Ili se registrirajte putem</span>
+                            </div>
+                            <div class="social-login">
+                                <button type="button" class="social-login-btn">
+                                    <i class="fab fa-facebook-f"></i> Facebook
+                                </button>
+                                <button type="button" class="social-login-btn">
+                                    <i class="fab fa-google"></i> Google
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Benefits Section -->
+                <div class="account-benefits">
+                    <h2>Prednosti korisničkog računa</h2>
+                    <div class="account-benefits">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h3>Povijest narudžbi</h3>
+                            <p>Pratite sve svoje narudžbe na jednom mjestu.</p>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h3>Brža kupovina</h3>
+                            <p>Spremite svoje podatke za brži checkout.</p>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>Lista želja</h3>
+                            <p>Spremite proizvode koje želite kupiti kasnije.</p>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-tag"></i>
+                            </div>
+                            <h3>Ekskluzivne ponude</h3>
+                            <p>Pristup posebnim ponudama samo za registrirane korisnike.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer će biti učitan putem JavaScripta -->
+    <footer></footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Dodatni JavaScript za funkcionalnosti na stranici prijave
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab funkcionalnost
+            const tabs = document.querySelectorAll('.account-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Ukloni active klasu sa svih tabova
+                    document.querySelectorAll('.account-tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+
+                    // Ukloni active klasu sa svih form containera
+                    document.querySelectorAll('.account-form-container').forEach(container => {
+                        container.classList.remove('active');
+                    });
+
+                    // Dodaj active klasu na kliknuti tab
+                    this.classList.add('active');
+
+                    // Prikaži odgovarajući form container
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Toggle password visibility
+            const toggleButtons = document.querySelectorAll('.toggle-password');
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                    input.setAttribute('type', type);
+
+                    // Promijeni ikonu
+                    const icon = this.querySelector('i');
+                    icon.classList.toggle('fa-eye');
+                    icon.classList.toggle('fa-eye-slash');
+                });
+            });
+
+            // Password strength meter
+            const passwordInput = document.getElementById('register-password');
+            if (passwordInput) {
+                passwordInput.addEventListener('input', function() {
+                    const password = this.value;
+                    let strength = 0;
+
+                    // Provjeri duljinu
+                    if (password.length >= 8) strength += 1;
+
+                    // Provjeri mala slova
+                    if (password.match(/[a-z]/)) strength += 1;
+
+                    // Provjeri velika slova
+                    if (password.match(/[A-Z]/)) strength += 1;
+
+                    // Provjeri brojeve
+                    if (password.match(/[0-9]/)) strength += 1;
+
+                    // Provjeri specijalne znakove
+                    if (password.match(/[^a-zA-Z0-9]/)) strength += 1;
+
+                    // Postavi jačinu lozinke
+                    const strengthMeter = document.querySelector('.strength-meter-fill');
+                    const strengthText = document.querySelector('.strength-text span');
+
+                    strengthMeter.setAttribute('data-strength', strength);
+
+                    // Postavi tekst
+                    if (strength === 0) strengthText.textContent = 'Slaba';
+                    else if (strength <= 2) strengthText.textContent = 'Srednja';
+                    else if (strength <= 4) strengthText.textContent = 'Jaka';
+                    else strengthText.textContent = 'Vrlo jaka';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

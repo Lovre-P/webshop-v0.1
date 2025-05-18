@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Često postavljana pitanja - TechShop</title>
+    <meta name="description" content="Odgovori na često postavljana pitanja o kupovini, dostavi, povratima i plaćanju.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/fixes.css">
+</head>
+<body>
+    <!-- Header će biti učitan putem JavaScripta -->
+    <header></header>
+
+    <main class="fade-in">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Često postavljana pitanja</h1>
+                <div class="breadcrumbs">
+                    <a href="../index.html">Početna</a> &gt; <span>Često postavljana pitanja</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <!-- FAQ Search -->
+                <div class="faq-search">
+                    <form>
+                        <div class="search-container">
+                            <input type="text" placeholder="Pretražite pitanja..." aria-label="Pretražite pitanja">
+                            <button type="submit" aria-label="Pretraži">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- FAQ Categories -->
+                <div class="faq-categories">
+                    <div class="category-tabs">
+                        <button class="category-tab active" data-category="all">Sva pitanja</button>
+                        <button class="category-tab" data-category="orders">Narudžbe</button>
+                        <button class="category-tab" data-category="shipping">Dostava</button>
+                        <button class="category-tab" data-category="returns">Povrati</button>
+                        <button class="category-tab" data-category="payment">Plaćanje</button>
+                        <button class="category-tab" data-category="products">Proizvodi</button>
+                    </div>
+                </div>
+
+                <!-- FAQ Items -->
+                <div class="faq-items">
+                    <!-- Narudžbe -->
+                    <div class="faq-category" data-category="orders">
+                        <h2>Narudžbe</h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Kako mogu naručiti proizvode?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Naručivanje proizvoda je jednostavno. Odaberite željeni proizvod, kliknite na "Dodaj u košaricu", a zatim idite na košaricu i slijedite korake za dovršetak narudžbe. Potrebno je unijeti podatke za dostavu i odabrati način plaćanja.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Mogu li promijeniti ili otkazati narudžbu?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Narudžbu možete promijeniti ili otkazati unutar 1 sata od naručivanja, kontaktirajući našu korisničku podršku putem telefona ili e-maila. Nakon što narudžba uđe u proces obrade, više je ne možemo otkazati.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Kako mogu pratiti status svoje narudžbe?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Nakon što vaša narudžba bude poslana, dobit ćete e-mail s brojem za praćenje i linkom gdje možete pratiti status vaše pošiljke. Također možete pratiti status narudžbe prijavom na svoj korisnički račun.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dostava -->
+                    <div class="faq-category" data-category="shipping">
+                        <h2>Dostava</h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Koliko traje dostava?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Standardna dostava obično traje 2-3 radna dana. Za ekspresnu dostavu, proizvodi se isporučuju unutar 24 sata (samo za područje većih gradova). Vrijeme dostave može varirati ovisno o vašoj lokaciji i dostupnosti proizvoda.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Koliko košta dostava?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Standardna dostava košta 5,00 €. Ekspresna dostava košta 10,00 €. Za narudžbe iznad 50 €, dostava je besplatna. Cijene dostave mogu se razlikovati za otoke i udaljena područja.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Dostavljate li na otoke?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Da, dostavljamo na sve hrvatske otoke. Međutim, vrijeme dostave može biti duže (3-5 radnih dana), a cijena dostave može biti viša, ovisno o lokaciji.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Povrati -->
+                    <div class="faq-category" data-category="returns">
+                        <h2>Povrati</h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Kako mogu vratiti proizvod?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Proizvode možete vratiti u roku od 14 dana od primitka. Proizvod mora biti u originalnom pakiranju i neoštećen. Za povrat, ispunite obrazac za povrat koji ste dobili uz narudžbu ili ga preuzmite s naše web stranice, i pošaljite proizvod na našu adresu za povrate.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Tko snosi troškove povrata?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Kupac snosi troškove povrata proizvoda, osim u slučaju da je proizvod neispravan ili oštećen pri dostavi. U tom slučaju, mi snosimo troškove povrata.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Koliko traje obrada povrata?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Nakon što zaprimimo vraćeni proizvod, obrada povrata traje 3-5 radnih dana. Povrat novca bit će izvršen istim načinom plaćanja kojim je narudžba plaćena.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plaćanje -->
+                    <div class="faq-category" data-category="payment">
+                        <h2>Plaćanje</h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Koje načine plaćanja prihvaćate?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Prihvaćamo plaćanje kreditnim karticama (Visa, MasterCard, American Express), PayPal-om i pouzećem (plaćanje gotovinom prilikom dostave). Također nudimo mogućnost plaćanja na rate za određene kreditne kartice.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Je li plaćanje sigurno?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Da, sva plaćanja su sigurna. Koristimo najnovije sigurnosne protokole i SSL enkripciju za zaštitu vaših podataka. Nikada ne pohranjujemo podatke o vašoj kreditnoj kartici.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Mogu li dobiti R1 račun?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Da, možete dobiti R1 račun. Prilikom naručivanja, označite opciju "Trebam R1 račun" i unesite potrebne podatke o tvrtki (naziv, adresa, OIB).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proizvodi -->
+                    <div class="faq-category" data-category="products">
+                        <h2>Proizvodi</h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Jesu li proizvodi originalni?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Da, svi proizvodi u našoj ponudi su 100% originalni i dolaze s jamstvom proizvođača. Mi smo ovlašteni distributer za sve brendove koje prodajemo.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Koliko traje jamstvo?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Jamstvo ovisi o proizvodu i proizvođaču. Većina proizvoda dolazi s jamstvom od 12 ili 24 mjeseca. Točno trajanje jamstva navedeno je na stranici proizvoda i u dokumentaciji koja dolazi s proizvodom.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Što ako proizvod koji želim nije dostupan?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Ako proizvod trenutno nije dostupan, možete kliknuti na gumb "Obavijesti me" na stranici proizvoda i dobit ćete e-mail obavijest kada proizvod ponovno bude dostupan. Također možete kontaktirati našu korisničku podršku za informacije o dostupnosti.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="faq-contact">
+                    <h2>Niste pronašli odgovor?</h2>
+                    <p>Ako niste pronašli odgovor na svoje pitanje, slobodno nas kontaktirajte. Naš tim korisničke podrške stoji vam na raspolaganju.</p>
+                    <div class="contact-buttons">
+                        <a href="kontakt.html" class="btn btn-primary">Kontaktirajte nas</a>
+                        <a href="tel:+38512345678" class="btn btn-outline">+385 1 234 5678</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer će biti učitan putem JavaScripta -->
+    <footer></footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

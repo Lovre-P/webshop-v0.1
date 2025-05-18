@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plaćanje - TechShop</title>
+    <meta name="description" content="Dovršite svoju narudžbu i odaberite način plaćanja.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/fixes.css">
+</head>
+<body>
+    <!-- Header će biti učitan putem JavaScripta -->
+    <header></header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Plaćanje</h1>
+                <div class="breadcrumbs">
+                    <a href="../index.html">Početna</a> &gt;
+                    <a href="kosarica.html">Košarica</a> &gt;
+                    <span>Plaćanje</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkout Section -->
+        <section class="checkout-section">
+            <div class="container">
+                <div class="checkout-container">
+                    <!-- Checkout Form -->
+                    <div class="checkout-form">
+                        <form>
+                            <div class="form-columns">
+                                <!-- Customer Information -->
+                                <div class="form-column">
+                                    <h2>Podaci o kupcu</h2>
+
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="first-name">Ime *</label>
+                                            <input type="text" id="first-name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="last-name">Prezime *</label>
+                                            <input type="text" id="last-name" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email">Email adresa *</label>
+                                        <input type="email" id="email" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="phone">Telefon *</label>
+                                        <input type="tel" id="phone" required>
+                                    </div>
+
+                                    <h3>Adresa dostave</h3>
+
+                                    <div class="form-group">
+                                        <label for="address">Adresa *</label>
+                                        <input type="text" id="address" required>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="city">Grad *</label>
+                                            <input type="text" id="city" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="postal-code">Poštanski broj *</label>
+                                            <input type="text" id="postal-code" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="country">Država *</label>
+                                        <select id="country" required>
+                                            <option value="HR" selected>Hrvatska</option>
+                                            <option value="SI">Slovenija</option>
+                                            <option value="AT">Austrija</option>
+                                            <option value="DE">Njemačka</option>
+                                            <option value="IT">Italija</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group checkbox-group">
+                                        <label>
+                                            <input type="checkbox" id="different-billing">
+                                            Adresa za račun različita od adrese dostave
+                                        </label>
+                                    </div>
+
+                                    <div class="billing-address" style="display: none;">
+                                        <h3>Adresa za račun</h3>
+
+                                        <div class="form-group">
+                                            <label for="billing-address">Adresa *</label>
+                                            <input type="text" id="billing-address">
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="billing-city">Grad *</label>
+                                                <input type="text" id="billing-city">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="billing-postal-code">Poštanski broj *</label>
+                                                <input type="text" id="billing-postal-code">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="billing-country">Država *</label>
+                                            <select id="billing-country">
+                                                <option value="HR" selected>Hrvatska</option>
+                                                <option value="SI">Slovenija</option>
+                                                <option value="AT">Austrija</option>
+                                                <option value="DE">Njemačka</option>
+                                                <option value="IT">Italija</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="order-notes">Napomene uz narudžbu (opcionalno)</label>
+                                        <textarea id="order-notes" rows="4"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Payment Information -->
+                                <div class="form-column">
+                                    <h2>Način plaćanja</h2>
+
+                                    <div class="payment-methods">
+                                        <div class="payment-method">
+                                            <label>
+                                                <input type="radio" name="payment-method" value="credit-card" checked>
+                                                <span class="payment-title">Kreditna kartica</span>
+                                            </label>
+                                            <div class="payment-details credit-card-details">
+                                                <div class="form-group">
+                                                    <label for="card-number">Broj kartice *</label>
+                                                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label for="expiry-date">Datum isteka *</label>
+                                                        <input type="text" id="expiry-date" placeholder="MM/GG">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="cvv">CVV *</label>
+                                                        <input type="text" id="cvv" placeholder="123">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="card-holder">Ime vlasnika kartice *</label>
+                                                    <input type="text" id="card-holder">
+                                                </div>
+                                                <div class="card-icons">
+                                                    <i class="fab fa-cc-visa"></i>
+                                                    <i class="fab fa-cc-mastercard"></i>
+                                                    <i class="fab fa-cc-amex"></i>
+                                                    <i class="fab fa-cc-diners-club"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="payment-method">
+                                            <label>
+                                                <input type="radio" name="payment-method" value="paypal">
+                                                <span class="payment-title">PayPal</span>
+                                            </label>
+                                            <div class="payment-details paypal-details" style="display: none;">
+                                                <p>Bit ćete preusmjereni na PayPal kako biste dovršili plaćanje.</p>
+                                                <div class="paypal-icon">
+                                                    <i class="fab fa-paypal"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="payment-method">
+                                            <label>
+                                                <input type="radio" name="payment-method" value="cod">
+                                                <span class="payment-title">Plaćanje pouzećem</span>
+                                            </label>
+                                            <div class="payment-details cod-details" style="display: none;">
+                                                <p>Platite gotovinom prilikom dostave.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="order-summary">
+                                        <h2>Pregled narudžbe</h2>
+                                        <div class="order-items">
+                                            <div class="order-item">
+                                                <div class="item-name">Smartphone XYZ (Crna, 128GB)</div>
+                                                <div class="item-quantity">1 ×</div>
+                                                <div class="item-price">799,99 €</div>
+                                            </div>
+                                            <div class="order-item">
+                                                <div class="item-name">Tablet 123 (Srebrna, 64GB)</div>
+                                                <div class="item-quantity">1 ×</div>
+                                                <div class="item-price">499,99 €</div>
+                                            </div>
+                                            <div class="order-item">
+                                                <div class="item-name">Bežične slušalice (Bijela)</div>
+                                                <div class="item-quantity">1 ×</div>
+                                                <div class="item-price">149,99 €</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="order-totals">
+                                            <div class="total-row">
+                                                <div class="total-label">Međuzbroj</div>
+                                                <div class="total-value">1.449,97 €</div>
+                                            </div>
+                                            <div class="total-row">
+                                                <div class="total-label">Dostava</div>
+                                                <div class="total-value">Besplatna dostava</div>
+                                            </div>
+                                            <div class="total-row grand-total">
+                                                <div class="total-label">Ukupno</div>
+                                                <div class="total-value">1.449,97 €</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group checkbox-group terms-checkbox">
+                                        <label>
+                                            <input type="checkbox" id="terms" required>
+                                            Pročitao/la sam i slažem se s <a href="uvjeti-koristenja.html">uvjetima korištenja</a> i <a href="politika-privatnosti.html">politikom privatnosti</a> *
+                                        </label>
+                                    </div>
+
+                                    <div class="checkout-actions">
+                                        <button type="submit" class="btn btn-primary place-order">Potvrdi narudžbu</button>
+                                        <a href="kosarica.html" class="btn btn-outline return-to-cart">Povratak na košaricu</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer će biti učitan putem JavaScripta -->
+    <footer></footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

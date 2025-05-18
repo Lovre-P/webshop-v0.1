@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - TechShop</title>
+    <meta name="description" content="Kontaktirajte nas za sva pitanja, prijedloge ili reklamacije.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/fixes.css">
+</head>
+<body>
+    <!-- Header će biti učitan putem JavaScripta -->
+    <header></header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Kontaktirajte nas</h1>
+                <div class="breadcrumbs">
+                    <a href="../index.html">Početna</a> &gt; <span>Kontakt</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-intro">
+                    <p>Imate pitanje, prijedlog ili reklamaciju? Kontaktirajte nas putem obrasca ispod ili direktno putem naših kontakt informacija. Naš tim će vam odgovoriti u najkraćem mogućem roku.</p>
+                </div>
+
+                <div class="contact-container">
+                    <!-- Contact Form -->
+                    <div class="contact-form-container">
+                        <h2>Pošaljite nam poruku</h2>
+                        <form class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Ime i prezime *</label>
+                                    <input type="text" id="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email adresa *</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Naslov *</label>
+                                <input type="text" id="subject" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Poruka *</label>
+                                <textarea id="message" rows="6" required></textarea>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label>
+                                    <input type="checkbox" id="privacy-policy" required>
+                                    Slažem se s <a href="politika-privatnosti.html">politikom privatnosti</a> *
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Pošalji poruku</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="contact-info-container">
+                        <h2>Kontakt informacije</h2>
+
+                        <div class="contact-info-items">
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Adresa</h3>
+                                    <p>Ilica 242<br>10000 Zagreb<br>Hrvatska</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Telefon</h3>
+                                    <p>+385 1 234 5678</p>
+                                    <p>+385 99 123 4567</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Email</h3>
+                                    <p>info@techshop.hr</p>
+                                    <p>podrska@techshop.hr</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Radno vrijeme</h3>
+                                    <p>Ponedjeljak - Petak: 9:00 - 20:00</p>
+                                    <p>Subota: 9:00 - 15:00</p>
+                                    <p>Nedjelja: Zatvoreno</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-contact">
+                            <h3>Pratite nas</h3>
+                            <div class="social-icons">
+                                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Section -->
+                <div class="map-section">
+                    <h2>Kako do nas</h2>
+                    <div class="map-container">
+                        <!-- In a real implementation, this would be a Google Maps embed -->
+                        <img src="https://picsum.photos/1200/400?random=30" alt="Karta lokacije" class="map-placeholder">
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="contact-faq">
+                    <h2>Često postavljana pitanja</h2>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Koliko traje dostava?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Standardna dostava obično traje 2-3 radna dana. Za ekspresnu dostavu, proizvodi se isporučuju unutar 24 sata (samo za područje većih gradova).</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Kako mogu pratiti svoju narudžbu?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Nakon što vaša narudžba bude poslana, dobit ćete email s brojem za praćenje i linkom gdje možete pratiti status vaše pošiljke.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Koji su načini plaćanja?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Prihvaćamo plaćanje kreditnim karticama (Visa, MasterCard, American Express), PayPal-om i pouzećem (plaćanje gotovinom prilikom dostave).</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Kako mogu vratiti proizvod?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Proizvode možete vratiti u roku od 14 dana od primitka. Proizvod mora biti u originalnom pakiranju i neoštećen. Za više informacija, posjetite našu stranicu o povratima ili nas kontaktirajte.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-more">
+                        <p>Imate više pitanja? Posjetite našu <a href="faq.html">stranicu s često postavljanim pitanjima</a> ili nas kontaktirajte direktno.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer će biti učitan putem JavaScripta -->
+    <footer></footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

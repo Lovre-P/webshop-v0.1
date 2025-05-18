@@ -1,0 +1,93 @@
+/* Dark Mode Styles */
+.dark-mode {
+  --text-color: #f8f9fa;
+  --light-text-color: #e9ecef;
+  --background-color: #121212;
+  --light-background: #212529;
+  --dark-background: #000000;
+  --border-color: #495057;
+  --shadow-sm: 0 1px 3px rgba(255, 255, 255, 0.1);
+  --shadow-md: 0 4px 6px rgba(255, 255, 255, 0.08);
+  --shadow-lg: 0 10px 15px rgba(255, 255, 255, 0.08);
+
+  /* Accessibility improvements for dark mode */
+  --primary-color: #4d9fff; /* Brighter blue for better contrast */
+  --secondary-color: #ff4d8d; /* Brighter pink for better contrast */
+  --accent-color: #ffcc33; /* Brighter yellow for better contrast */
+  --success-color: #4dcc5d; /* Brighter green for better contrast */
+  --error-color: #ff5c5c; /* Brighter red for better contrast */
+  --warning-color: #ffcc33; /* Brighter yellow for better contrast */
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+  transition: transform var(--transition-fast);
+}
+
+#theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
+/* Dark Mode Specific Overrides */
+.dark-mode .product-card {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .feature,
+.dark-mode .sidebar,
+.dark-mode .cart-totals,
+.dark-mode .order-summary,
+.dark-mode .mission,
+.dark-mode .vision,
+.dark-mode .value-card,
+.dark-mode .about-cta {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .product-badge {
+  background-color: var(--secondary-color);
+}
+
+.dark-mode .promo-banner {
+  background-color: #2c2c2c;
+}
+
+.dark-mode .btn-outline {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.dark-mode .btn-outline:hover {
+  background-color: var(--primary-color);
+  color: #121212;
+}
+
+.dark-mode .header-container,
+.dark-mode .page-header {
+  background-color: #1a1a1a;
+}
+
+.dark-mode footer {
+  background-color: #0a0a0a;
+}
+
+/* Smooth transition between light and dark mode */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header,
+footer,
+.product-card,
+.feature,
+.sidebar,
+.cart-totals,
+.order-summary,
+.mission,
+.vision,
+.value-card,
+.about-cta,
+.promo-banner,
+.btn-outline {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
