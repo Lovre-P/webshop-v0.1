@@ -34,7 +34,11 @@
         <section class="featured-products">
             <div class="container">
                 <h2>Istaknuti proizvodi</h2>
-                <div class="product-grid">
+                <div class="product-grid-container">
+                    <button class="slider-nav prev" aria-label="Prethodni proizvodi">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="product-grid">
                     <!-- Product 1 -->
                     <div class="product-card">
                         <div class="product-badge">Novo</div>
@@ -106,6 +110,45 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://picsum.photos/300/300?random=5" alt="Smartwatch Pro">
+                        </div>
+                        <div class="product-info">
+                            <h3>Smartwatch Pro</h3>
+                            <div class="product-price">
+                                <span class="current-price">299,99 €</span>
+                            </div>
+                            <div class="product-actions">
+                                <a href="pages/pojedinacni-proizvod.html" class="btn btn-outline">Detalji</a>
+                                <button class="btn btn-primary">Dodaj u košaricu</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card">
+                        <div class="product-badge">Akcija</div>
+                        <div class="product-image">
+                            <img src="https://picsum.photos/300/300?random=6" alt="Gaming tipkovnica">
+                        </div>
+                        <div class="product-info">
+                            <h3>Gaming tipkovnica</h3>
+                            <div class="product-price">
+                                <span class="old-price">199,99 €</span>
+                                <span class="current-price">149,99 €</span>
+                            </div>
+                            <div class="product-actions">
+                                <a href="pages/pojedinacni-proizvod.html" class="btn btn-outline">Detalji</a>
+                                <button class="btn btn-primary">Dodaj u košaricu</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-nav next" aria-label="Sljedeći proizvodi">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
                 <div class="view-all">
                     <a href="pages/proizvodi.html" class="btn btn-outline">Pogledaj sve proizvode</a>
@@ -198,6 +241,7 @@
     <!-- Footer će biti učitan putem JavaScripta -->
     <footer></footer>
 
+    <script src="js/ecommerce.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

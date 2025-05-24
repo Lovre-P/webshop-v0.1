@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     setupFAQAccordion();
     setupProductTabs();
     setupQuantityButtons();
+    setupProductSlider();
+    setupAddToCartButtons();
+    setupSearchFunctionality();
     setupAccessibility();
 
     // Popravi linkove nakon učitavanja komponenti
@@ -331,6 +334,7 @@ function fixLinks() {
 
     if (isInSubdirectory) {
         // Popravi linkove u headeru
+        fixLink('logo-link', '../index.html');
         fixLink('home-link', '../index.html');
         fixLink('products-link', 'proizvodi.html');
         fixLink('about-link', 'o-nama.html');
@@ -361,4 +365,140 @@ function fixLink(id, newHref) {
     if (link) {
         link.setAttribute('href', newHref);
     }
+}
+
+// Funkcija za product slider
+function setupProductSlider() {
+    const sliderContainers = document.querySelectorAll('.product-grid-container');
+
+    sliderContainers.forEach(container => {
+        const productGrid = container.querySelector('.product-grid');
+        const prevBtn = container.querySelector('.slider-nav.prev');
+        const nextBtn = container.querySelector('.slider-nav.next');
+
+        if (!productGrid || !prevBtn || !nextBtn) return;
+
+        const cardWidth = 280; // Fixed width + gap
+        const gap = 24; // var(--spacing-lg) is typically 24px
+        const scrollAmount = cardWidth + gap;
+
+        // Update button states
+        function updateButtons() {
+            const scrollLeft = productGrid.scrollLeft;
+            const maxScroll = productGrid.scrollWidth - productGrid.clientWidth;
+
+            prevBtn.disabled = scrollLeft <= 0;
+            nextBtn.disabled = scrollLeft >= maxScroll - 1; // -1 for rounding errors
+        }
+
+        // Scroll to previous products
+        prevBtn.addEventListener('click', () => {
+            productGrid.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        // Scroll to next products
+        nextBtn.addEventListener('click', () => {
+            productGrid.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        // Update button states on scroll
+        productGrid.addEventListener('scroll', updateButtons);
+
+        // Initial button state
+        updateButtons();
+
+        // Update on window resize
+        window.addEventListener('resize', updateButtons);
+    });
+}
+
+// Funkcija za "Dodaj u košaricu" gumbove
+function setupAddToCartButtons() {
+    document.addEventListener('click', function(e) {
+        if (e.target.matches('.btn-primary') && e.target.textContent.includes('Dodaj u košaricu')) {
+            e.preventDefault();
+
+            // Get product ID from the product card
+            const productCard = e.target.closest('.product-card');
+            if (!productCard) return;
+
+            // Extract product info from the card
+            const productName = productCard.querySelector('h3').textContent;
+            const productImage = productCard.querySelector('img').src;
+
+            // Find product in database by name (simple matching)
+            const product = window.TechShop?.PRODUCTS.find(p => p.name === productName);
+
+            if (product && window.TechShop?.cart) {
+                // Get selected options if on product detail page
+                const selectedColor = getSelectedColor();
+                const selectedVariant = getSelectedVariant();
+                const quantity = getSelectedQuantity();
+
+                window.TechShop.cart.addItem(product.id, quantity, selectedColor, selectedVariant);
+            } else {
+                // Fallback notification if product not found
+                showFallbackNotification('Proizvod dodano u košaricu!');
+            }
+        }
+    });
+}
+
+// Helper functions for product options
+function getSelectedColor() {
+    const colorOption = document.querySelector('.color-option.active');
+    return colorOption ? colorOption.dataset.color : null;
+}
+
+function getSelectedVariant() {
+    const variantOption = document.querySelector('.variant-option.active');
+    return variantOption ? variantOption.textContent : null;
+}
+
+function getSelectedQuantity() {
+    const quantityInput = document.querySelector('.quantity-selector input');
+    return quantityInput ? parseInt(quantityInput.value) : 1;
+}
+
+// Fallback notification for when e-commerce.js is not loaded
+function showFallbackNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification notification-success show';
+    notification.innerHTML = `
+        <i class="fas fa-check-circle"></i>
+        <span>${message}</span>
+    `;
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// Funkcija za pretraživanje
+function setupSearchFunctionality() {
+    const searchForm = document.querySelector('.search-form');
+    const searchInput = document.querySelector('.search-form input');
+
+    if (!searchForm || !searchInput) return;
+
+    searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const searchTerm = searchInput.value.trim();
+
+        if (searchTerm) {
+            // Redirect to products page with search parameter
+            const isInSubdirectory = window.location.pathname.includes('/pages/');
+            const productsUrl = isInSubdirectory ? 'proizvodi.html' : 'pages/proizvodi.html';
+            window.location.href = `${productsUrl}?search=${encodeURIComponent(searchTerm)}`;
+        }
+    });
 }

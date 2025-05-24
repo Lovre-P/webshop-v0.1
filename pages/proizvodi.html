@@ -37,13 +37,43 @@
                     <aside class="sidebar">
                         <div class="filter-section">
                             <h3>Kategorije</h3>
-                            <ul class="filter-list">
-                                <li><a href="#">Pametni telefoni</a></li>
-                                <li><a href="#">Laptopi</a></li>
-                                <li><a href="#">Tableti</a></li>
-                                <li><a href="#">Pametni satovi</a></li>
-                                <li><a href="#">Slušalice</a></li>
-                                <li><a href="#">Dodatna oprema</a></li>
+                            <ul class="filter-list checkbox-list">
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="category" value="smartphones">
+                                        Pametni telefoni <span class="count">(0)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="category" value="laptops">
+                                        Laptopi <span class="count">(0)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="category" value="tablets">
+                                        Tableti <span class="count">(0)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="category" value="wearables">
+                                        Nosiva tehnologija <span class="count">(0)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="category" value="audio">
+                                        Audio <span class="count">(0)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="category" value="accessories">
+                                        Dodaci <span class="count">(0)</span>
+                                    </label>
+                                </li>
                             </ul>
                         </div>
 
@@ -51,9 +81,9 @@
                             <h3>Cijena</h3>
                             <div class="price-filter">
                                 <div class="price-inputs">
-                                    <input type="number" placeholder="Od" min="0">
+                                    <input type="number" name="price-min" placeholder="Od" min="0" value="0">
                                     <span>-</span>
-                                    <input type="number" placeholder="Do" min="0">
+                                    <input type="number" name="price-max" placeholder="Do" min="0" value="2000">
                                 </div>
                                 <button class="btn btn-outline">Primijeni</button>
                             </div>
@@ -64,27 +94,44 @@
                             <ul class="filter-list checkbox-list">
                                 <li>
                                     <label>
-                                        <input type="checkbox"> Apple
+                                        <input type="checkbox" name="brand" value="TechBrand">
+                                        TechBrand <span class="count">(0)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox"> Samsung
+                                        <input type="checkbox" name="brand" value="CompuTech">
+                                        CompuTech <span class="count">(0)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox"> Xiaomi
+                                        <input type="checkbox" name="brand" value="TabletCorp">
+                                        TabletCorp <span class="count">(0)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox"> Huawei
+                                        <input type="checkbox" name="brand" value="SoundTech">
+                                        SoundTech <span class="count">(0)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox"> Sony
+                                        <input type="checkbox" name="brand" value="WatchTech">
+                                        WatchTech <span class="count">(0)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="brand" value="GameTech">
+                                        GameTech <span class="count">(0)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="brand" value="ConnectTech">
+                                        ConnectTech <span class="count">(0)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -161,15 +208,17 @@
                     <div class="products-content">
                         <div class="products-header">
                             <div class="products-count">
-                                <p>Prikazano 1-12 od 36 proizvoda</p>
+                                <p class="results-count">Prikazano 1-8 od 8 proizvoda</p>
                             </div>
                             <div class="products-sorting">
                                 <label for="sort">Sortiraj po:</label>
-                                <select id="sort">
+                                <select id="sort" name="sort">
                                     <option value="popularity">Popularnosti</option>
                                     <option value="price-asc">Cijeni (od niže prema višoj)</option>
                                     <option value="price-desc">Cijeni (od više prema nižoj)</option>
                                     <option value="newest">Najnovije</option>
+                                    <option value="name-asc">Nazivu (A-Z)</option>
+                                    <option value="name-desc">Nazivu (Z-A)</option>
                                 </select>
                             </div>
                         </div>
@@ -230,8 +279,58 @@
                                 </div>
                             </div>
 
-                            <!-- More products (4-12) would go here -->
-                            <!-- For brevity, I'm including just 3 products, but in a real implementation, you'd have more -->
+                            <!-- Product 4 -->
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/300/300?random=4" alt="Bežične slušalice">
+                                </div>
+                                <div class="product-info">
+                                    <h3>Bežične slušalice</h3>
+                                    <div class="product-price">
+                                        <span class="current-price">149,99 €</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="pojedinacni-proizvod.html" class="btn btn-outline">Detalji</a>
+                                        <button class="btn btn-primary">Dodaj u košaricu</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="product-card">
+                                <div class="product-badge">Popularno</div>
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/300/300?random=5" alt="Gaming miš s RGB osvjetljenjem">
+                                </div>
+                                <div class="product-info">
+                                    <h3>Gaming miš s RGB osvjetljenjem i preciznim senzorima</h3>
+                                    <div class="product-price">
+                                        <span class="current-price">89,99 €</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="pojedinacni-proizvod.html" class="btn btn-outline">Detalji</a>
+                                        <button class="btn btn-primary">Dodaj u košaricu</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 6 -->
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/300/300?random=6" alt="USB-C Hub">
+                                </div>
+                                <div class="product-info">
+                                    <h3>USB-C Hub</h3>
+                                    <div class="product-price">
+                                        <span class="old-price">79,99 €</span>
+                                        <span class="current-price">59,99 €</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="pojedinacni-proizvod.html" class="btn btn-outline">Detalji</a>
+                                        <button class="btn btn-primary">Dodaj u košaricu</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Pagination -->
@@ -252,6 +351,8 @@
     <!-- Footer će biti učitan putem JavaScripta -->
     <footer></footer>
 
+    <script src="../js/ecommerce.js"></script>
+    <script src="../js/product-catalog.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>

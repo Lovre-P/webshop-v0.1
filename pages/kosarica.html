@@ -44,106 +44,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Cart Item 1 -->
-                                <tr class="cart-item">
-                                    <td class="product-remove">
-                                        <a href="#" class="remove" aria-label="Ukloni proizvod">
-                                            <i class="fas fa-times"></i>
-                                        </a>
-                                    </td>
-                                    <td class="product-thumbnail">
-                                        <a href="pojedinacni-proizvod.html">
-                                            <img src="https://picsum.photos/80/80?random=1" alt="Smartphone XYZ">
-                                        </a>
-                                    </td>
-                                    <td class="product-name">
-                                        <a href="pojedinacni-proizvod.html">Smartphone XYZ</a>
-                                        <div class="product-variation">
-                                            <span>Boja: Crna</span>
-                                            <span>Memorija: 128GB</span>
-                                        </div>
-                                    </td>
-                                    <td class="product-price">
-                                        <span>799,99 €</span>
-                                    </td>
-                                    <td class="product-quantity">
-                                        <div class="quantity-selector">
-                                            <button class="quantity-btn minus">-</button>
-                                            <input type="number" value="1" min="1" max="10">
-                                            <button class="quantity-btn plus">+</button>
-                                        </div>
-                                    </td>
-                                    <td class="product-subtotal">
-                                        <span>799,99 €</span>
-                                    </td>
-                                </tr>
-
-                                <!-- Cart Item 2 -->
-                                <tr class="cart-item">
-                                    <td class="product-remove">
-                                        <a href="#" class="remove" aria-label="Ukloni proizvod">
-                                            <i class="fas fa-times"></i>
-                                        </a>
-                                    </td>
-                                    <td class="product-thumbnail">
-                                        <a href="pojedinacni-proizvod.html">
-                                            <img src="https://picsum.photos/80/80?random=3" alt="Tablet 123">
-                                        </a>
-                                    </td>
-                                    <td class="product-name">
-                                        <a href="pojedinacni-proizvod.html">Tablet 123</a>
-                                        <div class="product-variation">
-                                            <span>Boja: Srebrna</span>
-                                            <span>Memorija: 64GB</span>
-                                        </div>
-                                    </td>
-                                    <td class="product-price">
-                                        <span>499,99 €</span>
-                                    </td>
-                                    <td class="product-quantity">
-                                        <div class="quantity-selector">
-                                            <button class="quantity-btn minus">-</button>
-                                            <input type="number" value="1" min="1" max="10">
-                                            <button class="quantity-btn plus">+</button>
-                                        </div>
-                                    </td>
-                                    <td class="product-subtotal">
-                                        <span>499,99 €</span>
-                                    </td>
-                                </tr>
-
-                                <!-- Cart Item 3 -->
-                                <tr class="cart-item">
-                                    <td class="product-remove">
-                                        <a href="#" class="remove" aria-label="Ukloni proizvod">
-                                            <i class="fas fa-times"></i>
-                                        </a>
-                                    </td>
-                                    <td class="product-thumbnail">
-                                        <a href="pojedinacni-proizvod.html">
-                                            <img src="https://picsum.photos/80/80?random=4" alt="Bežične slušalice">
-                                        </a>
-                                    </td>
-                                    <td class="product-name">
-                                        <a href="pojedinacni-proizvod.html">Bežične slušalice</a>
-                                        <div class="product-variation">
-                                            <span>Boja: Bijela</span>
-                                        </div>
-                                    </td>
-                                    <td class="product-price">
-                                        <span>149,99 €</span>
-                                    </td>
-                                    <td class="product-quantity">
-                                        <div class="quantity-selector">
-                                            <button class="quantity-btn minus">-</button>
-                                            <input type="number" value="1" min="1" max="10">
-                                            <button class="quantity-btn plus">+</button>
-                                        </div>
-                                    </td>
-                                    <td class="product-subtotal">
-                                        <span>149,99 €</span>
-                                    </td>
-                                </tr>
+                                <!-- Cart items will be dynamically loaded here -->
                             </tbody>
                         </table>
 
@@ -161,43 +62,26 @@
                         <h2>Ukupno košarica</h2>
                         <table class="totals-table">
                             <tbody>
-                                <tr class="subtotal">
+                                <tr class="cart-subtotal">
                                     <th>Međuzbroj</th>
-                                    <td>1.449,97 €</td>
+                                    <td><span class="amount">0,00 €</span></td>
                                 </tr>
-                                <tr class="shipping">
+                                <tr class="cart-shipping">
                                     <th>Dostava</th>
-                                    <td>
-                                        <ul class="shipping-methods">
-                                            <li>
-                                                <label>
-                                                    <input type="radio" name="shipping" checked>
-                                                    Standardna dostava: 5,00 €
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <input type="radio" name="shipping">
-                                                    Ekspresna dostava: 10,00 €
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <input type="radio" name="shipping">
-                                                    Besplatna dostava (za narudžbe iznad 50 €)
-                                                </label>
-                                            </li>
-                                        </ul>
-                                    </td>
+                                    <td><span class="amount">15,00 €</span></td>
                                 </tr>
-                                <tr class="total">
+                                <tr class="cart-total">
                                     <th>Ukupno</th>
-                                    <td>1.449,97 €</td>
+                                    <td><span class="amount">0,00 €</span></td>
                                 </tr>
                             </tbody>
                         </table>
+                        <div class="free-shipping-message info">
+                            Dodajte još 100,00 € za besplatnu dostavu.
+                        </div>
                         <div class="checkout-button">
-                            <a href="placanje.html" class="btn btn-primary">Nastavi na plaćanje</a>
+                            <a href="placanje.html" class="btn btn-primary checkout-btn">Nastavi na plaćanje</a>
+                            <a href="proizvodi.html" class="btn btn-outline continue-shopping">Nastavi kupovinu</a>
                         </div>
                     </div>
                 </div>
@@ -282,6 +166,8 @@
     <!-- Footer će biti učitan putem JavaScripta -->
     <footer></footer>
 
+    <script src="../js/ecommerce.js"></script>
+    <script src="../js/cart-page.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>
