@@ -227,11 +227,30 @@
 
 .hero-content h1 {
   margin-bottom: var(--spacing-md);
+  font-size: clamp(var(--font-size-4xl), 8vw, var(--font-size-7xl));
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-6);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: slideInUp 1s ease-out;
+  font-size: var(--font-size-xxxl);
+  font-weight: bold;
 }
 
 .hero-content p {
   margin-bottom: var(--spacing-lg);
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-xl);
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-8);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: slideInUp 1s ease-out 0.2s both;
+
 }
 
 /* Product Grid */
@@ -275,10 +294,10 @@
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: var(--accent-color);
+  background: linear-gradient(135deg, #ffbe0b 0%, #ff9900 50%, #ffffff 100%);
   color: white;
   padding: 5px 10px;
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--border-radius-lg);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-bold);
   z-index: 1;
@@ -1625,7 +1644,7 @@ a {
 }
 
 a:hover {
-  color: var(--secondary-color);
+  color: #225ab1;
 }
 
 img {
@@ -1660,52 +1679,101 @@ p {
 }
 
 button, .btn {
-  cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
   font-family: var(--font-family-main);
-  font-size: var(--font-size-medium);
-  font-weight: var(--font-weight-bold);
-  padding: var(--spacing-sm) var(--spacing-lg);
-  border-radius: var(--border-radius-sm);
-  border: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  text-decoration: none;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
   transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left var(--duration-500) var(--ease-out);
+}
+
+.btn:hover::before {
+  left: 100%;
 }
 
 .btn-primary {
-  background-color: var(--primary-color);
-  color: white;
-  width: auto;
+  background: var(--primary-gradient);
+  color: var(--primary-color);
+  box-shadow: var(--shadow-primary);
+  border-color: var(--primary-color);
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-color);
-  opacity: 0.9;
   color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .btn-secondary {
-  background-color: var(--secondary-color);
+  background: var(--secondary-gradient);
   color: white;
-  width: auto;
+  box-shadow: var(--shadow-secondary);
+  border-color: var(--secondary-color);
 }
 
 .btn-secondary:hover {
-  background-color: var(--secondary-color);
-  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg), var(--shadow-secondary);
   color: white;
 }
 
 .btn-outline {
-  background-color: transparent;
-  border: var(--border-width) solid var(--primary-color);
+  background: transparent;
   color: var(--primary-color);
-  width: auto;
+  border-color: var(--border-color);
+  backdrop-filter: var(--backdrop-blur-sm);
 }
 
 .btn-outline:hover {
-  background-color: var(--primary-color);
+  background: var(--primary-color);
   color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: transparent;
+}
+
+.btn-ghost:hover {
+  background: var(--background-secondary);
+  color: var(--text-color);
+}
+
+
 
 /* Container */
 .container {
@@ -1920,4 +1988,198 @@ footer {
   margin-top: var(--spacing-xl);
   opacity: 0.8;
   font-size: var(--font-size-small);
+}
+
+/* Candy Button Design - Blue Version for Hero */
+.candy-button {
+    display: inline-block;
+    padding: 14px 29px 12px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease-out;
+    animation: slideInUp 1s ease-in;
+
+    /* Base color #3a86ff -> rgb(58, 134, 255) */
+    /* Lighter shade: rgb(90, 155, 255) */
+    /* Darker shade for border: rgb(44, 112, 224) */
+    /* Even darker for bottom border: rgb(30, 80, 180) */
+
+    /* Multiple backgrounds: SVG line on top of color gradient */
+    background:
+        /* Layer 1: Abstract SVG line */
+        url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Cpath d='M20,30 C60,10 140,50 180,30' stroke='rgba(255,255,255,0.25)' stroke-width='2.5' fill='none'/%3E%3C/svg%3E")
+        center / 85% 65% no-repeat, /* Position / Size / Repeat for SVG */
+
+        /* Layer 2: Main color gradient (more transparent) */
+        linear-gradient(to bottom,
+            rgba(90, 155, 255, 0.55), /* Lighter, more translucent top */
+            rgba(58, 134, 255, 0.65)  /* Base color, more translucent bottom */
+        );
+
+    /* Translucent borders */
+    border: 1px solid rgba(44, 112, 224, 0.3);
+    border-bottom-width: 3px;
+    border-bottom-color: rgba(30, 80, 180, 0.5);
+
+    box-shadow:
+        inset 0 1px 0px rgba(255, 255, 255, 0.3), /* Softer inner top highlight */
+        0 5px 12px rgba(0, 0, 0, 0.12);          /* Softer outer shadow */
+
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Glossy highlight (remains relatively strong) */
+.candy-button::before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    height: calc(50% - 1px);
+    background: linear-gradient(to bottom,
+        rgba(255, 255, 255, 0.85) 0%, /* Slightly less intense top white */
+        rgba(255, 255, 255, 0.20) 60%,
+        rgba(255, 255, 255, 0.0) 100%
+    );
+    border-radius: 9px 9px 15px 15px;
+    z-index: 1;
+}
+
+.candy-button .button-text {
+    position: relative;
+    z-index: 2;
+}
+
+.candy-button:hover {
+    background-image:
+        url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Cpath d='M20,30 C60,10 140,50 180,30' stroke='rgba(255,255,255,0.3)' stroke-width='2.5' fill='none'/%3E%3C/svg%3E"), /* SVG line slightly brighter on hover */
+        linear-gradient(to bottom,
+            rgba(100, 165, 255, 0.6),
+            rgba(68, 144, 255, 0.7)
+        );
+    border-color: rgba(54, 122, 234, 0.35);
+    border-bottom-color: rgba(40, 100, 200, 0.55);
+    box-shadow:
+        inset 0 1px 0px rgba(255, 255, 255, 0.4),
+        0 7px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.candy-button:active {
+    background-image:
+        url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Cpath d='M20,30 C60,10 140,50 180,30' stroke='rgba(255,255,255,0.2)' stroke-width='2.5' fill='none'/%3E%3C/svg%3E"), /* SVG line slightly dimmer on active */
+        linear-gradient(to bottom,
+            rgba(48, 124, 245, 0.65),
+            rgba(38, 114, 235, 0.75)
+        );
+    border-color: rgba(30, 80, 180, 0.4);
+    border-bottom-color: rgba(20, 60, 150, 0.6);
+    box-shadow:
+        inset 0 1px 2px rgba(0, 0, 0, 0.2),
+        0 3px 8px rgba(0, 0, 0, 0.12);
+    transform: translateY(1px);
+}
+
+/* Candy Button Design - White Version for Footer */
+.candy-button-white {
+    display: inline-block;
+    padding: 14px 29px 12px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease-out;
+
+    /* White/Gray color scheme */
+    /* Base color: white -> rgb(255, 255, 255) */
+    /* Lighter shade: rgb(255, 255, 255) */
+    /* Darker shade for border: rgb(200, 200, 200) */
+    /* Even darker for bottom border: rgb(150, 150, 150) */
+
+    /* Multiple backgrounds: SVG line on top of color gradient */
+    background:
+        /* Layer 1: Abstract SVG line */
+        url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Cpath d='M20,30 C60,10 140,50 180,30' stroke='rgba(128,128,128,0.25)' stroke-width='2.5' fill='none'/%3E%3C/svg%3E")
+        center / 85% 65% no-repeat, /* Position / Size / Repeat for SVG */
+
+        /* Layer 2: Main color gradient (white with slight gray) */
+        linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.95), /* White top */
+            rgba(245, 245, 245, 0.95)  /* Slightly gray bottom */
+        );
+
+    /* Translucent borders */
+    border: 1px solid rgba(200, 200, 200, 0.3);
+    border-bottom-width: 3px;
+    border-bottom-color: rgba(150, 150, 150, 0.5);
+
+    box-shadow:
+        inset 0 1px 0px rgba(128, 128, 128, 0.3), /* Gray inner top highlight */
+        0 5px 12px rgba(0, 0, 0, 0.12);          /* Softer outer shadow */
+
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Glossy highlight for white button */
+.candy-button-white::before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    height: calc(50% - 1px);
+    background: linear-gradient(to bottom,
+        rgba(128, 128, 128, 0.15) 0%, /* Gray highlight instead of white */
+        rgba(128, 128, 128, 0.05) 60%,
+        rgba(128, 128, 128, 0.0) 100%
+    );
+    border-radius: 9px 9px 15px 15px;
+    z-index: 1;
+}
+
+.candy-button-white .button-text {
+    position: relative;
+    z-index: 2;
+}
+
+.candy-button-white:hover {
+    background-image:
+        url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Cpath d='M20,30 C60,10 140,50 180,30' stroke='rgba(128,128,128,0.3)' stroke-width='2.5' fill='none'/%3E%3C/svg%3E"), /* SVG line slightly brighter on hover */
+        linear-gradient(to bottom,
+            rgba(255, 255, 255, 1.0),
+            rgba(240, 240, 240, 1.0)
+        );
+    border-color: rgba(180, 180, 180, 0.35);
+    border-bottom-color: rgba(130, 130, 130, 0.55);
+    box-shadow:
+        inset 0 1px 0px rgba(128, 128, 128, 0.4),
+        0 7px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.candy-button-white:active {
+    background-image:
+        url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Cpath d='M20,30 C60,10 140,50 180,30' stroke='rgba(128,128,128,0.2)' stroke-width='2.5' fill='none'/%3E%3C/svg%3E"), /* SVG line slightly dimmer on active */
+        linear-gradient(to bottom,
+            rgba(235, 235, 235, 1.0),
+            rgba(225, 225, 225, 1.0)
+        );
+    border-color: rgba(160, 160, 160, 0.4);
+    border-bottom-color: rgba(120, 120, 120, 0.6);
+    box-shadow:
+        inset 0 1px 2px rgba(0, 0, 0, 0.1),
+        0 3px 8px rgba(0, 0, 0, 0.12);
+    transform: translateY(1px);
 }
