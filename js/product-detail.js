@@ -6,14 +6,14 @@ class ProductDetail {
         this.selectedColor = null;
         this.selectedVariant = null;
         this.currentProduct = null;
-        
+
         this.init();
     }
 
     init() {
         // Only initialize on product detail page
         if (!window.location.pathname.includes('pojedinacni-proizvod.html')) return;
-        
+
         this.loadProductFromURL();
         this.setupGallery();
         this.setupColorOptions();
@@ -27,7 +27,7 @@ class ProductDetail {
     loadProductFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         const productId = parseInt(urlParams.get('id'));
-        
+
         if (productId && window.TechShop?.PRODUCTS) {
             this.currentProduct = window.TechShop.PRODUCTS.find(p => p.id === productId);
             if (this.currentProduct) {
@@ -39,43 +39,43 @@ class ProductDetail {
     // Render product data dynamically
     renderProductData() {
         const product = this.currentProduct;
-        
+
         // Update basic info
         const titleElement = document.querySelector('.product-info h1');
         if (titleElement) titleElement.textContent = product.name;
-        
+
         const priceElement = document.querySelector('.current-price');
         if (priceElement) priceElement.textContent = `${product.price.toFixed(2)} €`;
-        
+
         const descriptionElement = document.querySelector('.product-short-description p');
         if (descriptionElement) descriptionElement.textContent = product.description;
-        
+
         // Update gallery
         this.updateGallery(product.gallery);
-        
+
         // Update color options
         this.updateColorOptions(product.colors);
-        
+
         // Update variant options
         this.updateVariantOptions(product.variants);
-        
+
         // Update badge
         this.updateBadge(product.badge);
-        
+
         // Update rating
         this.updateRating(product.rating, product.reviews);
     }
 
     updateGallery(gallery) {
         if (!gallery || gallery.length === 0) return;
-        
+
         const mainImage = document.getElementById('main-product-image');
         const thumbnailContainer = document.querySelector('.thumbnail-images');
-        
+
         if (mainImage) {
             mainImage.src = gallery[0];
         }
-        
+
         if (thumbnailContainer) {
             thumbnailContainer.innerHTML = gallery.map((image, index) => `
                 <div class="thumbnail ${index === 0 ? 'active' : ''}" data-image="${image}">
@@ -87,46 +87,40 @@ class ProductDetail {
 
     updateColorOptions(colors) {
         if (!colors || colors.length === 0) return;
-        
+
         const colorContainer = document.querySelector('.color-options');
         if (!colorContainer) return;
-        
-        const colorMap = {
-            'black': '#000000',
-            'white': '#FFFFFF',
-            'blue': '#0047AB',
-            'silver': '#C0C0C0',
-            'gold': '#FFD700',
-            'space-gray': '#4A4A4A'
-        };
-        
-        colorContainer.innerHTML = colors.map((color, index) => {
-            const colorCode = colorMap[color] || '#CCCCCC';
-            const borderStyle = color === 'white' ? 'border: 1px solid #ddd;' : '';
+
+        colorContainer.innerHTML = colors.map((colorObj, index) => {
+            // Handle both old string format and new object format
+            const colorName = typeof colorObj === 'string' ? colorObj : colorObj.name;
+            const colorCode = typeof colorObj === 'string' ? '#CCCCCC' : colorObj.color;
+            const borderStyle = colorCode === '#FFFFFF' || colorCode === '#F8F8FF' || colorCode === '#F9F6EF' ? 'border: 1px solid #ddd;' : '';
+
             return `
-                <div class="color-option ${index === 0 ? 'active' : ''}" 
-                     data-color="${color}" 
-                     style="background-color: ${colorCode}; ${borderStyle}" 
-                     title="${color}">
+                <div class="color-option ${index === 0 ? 'active' : ''}"
+                     data-color="${colorName}"
+                     style="background-color: ${colorCode}; ${borderStyle}"
+                     title="${colorName}">
                 </div>
             `;
         }).join('');
-        
-        this.selectedColor = colors[0];
+
+        this.selectedColor = typeof colors[0] === 'string' ? colors[0] : colors[0].name;
     }
 
     updateVariantOptions(variants) {
         if (!variants || variants.length === 0) return;
-        
+
         const variantContainer = document.querySelector('.variant-options');
         if (!variantContainer) return;
-        
+
         variantContainer.innerHTML = variants.map((variant, index) => `
             <div class="variant-option ${index === 0 ? 'active' : ''}" data-variant="${variant}">
                 ${variant}
             </div>
         `).join('');
-        
+
         this.selectedVariant = variants[0];
     }
 
@@ -156,10 +150,10 @@ class ProductDetail {
                 const thumbnail = e.target.closest('.thumbnail');
                 const imageUrl = thumbnail.dataset.image;
                 const mainImage = document.getElementById('main-product-image');
-                
+
                 if (mainImage && imageUrl) {
                     mainImage.src = imageUrl;
-                    
+
                     // Update active thumbnail
                     document.querySelectorAll('.thumbnail').forEach(thumb => {
                         thumb.classList.remove('active');
@@ -178,10 +172,10 @@ class ProductDetail {
                 document.querySelectorAll('.color-option').forEach(option => {
                     option.classList.remove('active');
                 });
-                
+
                 // Add active class to clicked option
                 e.target.classList.add('active');
-                
+
                 // Store selected color
                 this.selectedColor = e.target.dataset.color;
             }
@@ -196,10 +190,10 @@ class ProductDetail {
                 document.querySelectorAll('.variant-option').forEach(option => {
                     option.classList.remove('active');
                 });
-                
+
                 // Add active class to clicked option
                 e.target.classList.add('active');
-                
+
                 // Store selected variant
                 this.selectedVariant = e.target.dataset.variant;
             }
@@ -210,11 +204,11 @@ class ProductDetail {
     setupQuantityButtons() {
         const quantitySelector = document.querySelector('.quantity-selector');
         if (!quantitySelector) return;
-        
+
         const minusBtn = quantitySelector.querySelector('.minus');
         const plusBtn = quantitySelector.querySelector('.plus');
         const input = quantitySelector.querySelector('input');
-        
+
         if (minusBtn) {
             minusBtn.addEventListener('click', () => {
                 const currentValue = parseInt(input.value);
@@ -223,7 +217,7 @@ class ProductDetail {
                 }
             });
         }
-        
+
         if (plusBtn) {
             plusBtn.addEventListener('click', () => {
                 const currentValue = parseInt(input.value);
@@ -232,7 +226,7 @@ class ProductDetail {
                 }
             });
         }
-        
+
         if (input) {
             input.addEventListener('change', () => {
                 const value = parseInt(input.value);
@@ -249,10 +243,10 @@ class ProductDetail {
     setupAddToCart() {
         const addToCartBtn = document.querySelector('.add-to-cart');
         if (!addToCartBtn) return;
-        
+
         addToCartBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            
+
             if (!this.currentProduct) {
                 // Fallback for static product page
                 const productName = document.querySelector('.product-info h1')?.textContent;
@@ -261,13 +255,13 @@ class ProductDetail {
                     this.currentProduct = product;
                 }
             }
-            
+
             if (this.currentProduct && window.TechShop?.cart) {
                 const quantity = parseInt(document.querySelector('.quantity-selector input')?.value || 1);
                 window.TechShop.cart.addItem(
-                    this.currentProduct.id, 
-                    quantity, 
-                    this.selectedColor, 
+                    this.currentProduct.id,
+                    quantity,
+                    this.selectedColor,
                     this.selectedVariant
                 );
             }
@@ -278,11 +272,11 @@ class ProductDetail {
     setupRatingSelect() {
         const ratingStars = document.querySelectorAll('.rating-select i');
         let selectedRating = 0;
-        
+
         ratingStars.forEach((star, index) => {
             star.addEventListener('click', () => {
                 selectedRating = index + 1;
-                
+
                 // Update star display
                 ratingStars.forEach((s, i) => {
                     if (i < selectedRating) {
@@ -294,7 +288,7 @@ class ProductDetail {
                     }
                 });
             });
-            
+
             // Hover effect
             star.addEventListener('mouseenter', () => {
                 ratingStars.forEach((s, i) => {
@@ -308,7 +302,7 @@ class ProductDetail {
                 });
             });
         });
-        
+
         // Reset on mouse leave
         const ratingContainer = document.querySelector('.rating-select');
         if (ratingContainer) {

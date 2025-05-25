@@ -35,28 +35,22 @@
                     <!-- Product Gallery -->
                     <div class="product-gallery">
                         <div class="main-image">
-                            <img src="https://picsum.photos/600/600?random=1" alt="Smartphone XYZ" id="main-product-image">
+                            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MK2A3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1628010471000" alt="Magic Keyboard" id="main-product-image">
                         </div>
                         <div class="thumbnail-images">
-                            <div class="thumbnail active" data-image="https://picsum.photos/600/600?random=1">
-                                <img src="https://picsum.photos/100/100?random=1" alt="Smartphone XYZ - Slika 1">
+                            <div class="thumbnail active" data-image="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MK2A3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1628010471000">
+                                <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MK2A3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1628010471000" alt="Magic Keyboard - Slika 1">
                             </div>
-                            <div class="thumbnail" data-image="https://picsum.photos/600/600?random=2">
-                                <img src="https://picsum.photos/100/100?random=2" alt="Smartphone XYZ - Slika 2">
-                            </div>
-                            <div class="thumbnail" data-image="https://picsum.photos/600/600?random=3">
-                                <img src="https://picsum.photos/100/100?random=3" alt="Smartphone XYZ - Slika 3">
-                            </div>
-                            <div class="thumbnail" data-image="https://picsum.photos/600/600?random=4">
-                                <img src="https://picsum.photos/100/100?random=4" alt="Smartphone XYZ - Slika 4">
+                            <div class="thumbnail" data-image="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/magic-keyboard-hero-202104?wid=940&hei=1112&fmt=png-alpha&.v=1617194719000">
+                                <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/magic-keyboard-hero-202104?wid=940&hei=1112&fmt=png-alpha&.v=1617194719000" alt="Magic Keyboard - Slika 2">
                             </div>
                         </div>
                     </div>
 
                     <!-- Product Info -->
                     <div class="product-info">
-                        <div class="product-badge">Novo</div>
-                        <h1>Smartphone XYZ</h1>
+                        <div class="product-badge">Akcija</div>
+                        <h1>Magic Keyboard</h1>
 
                         <div class="product-rating">
                             <div class="stars">
@@ -66,21 +60,22 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <span class="rating-count">(24 recenzije)</span>
+                            <span class="rating-count">(156 recenzija)</span>
                         </div>
 
                         <div class="product-price">
-                            <span class="current-price">799,99 €</span>
+                            <span class="old-price">199,99 €</span>
+                            <span class="current-price">179,99 €</span>
                         </div>
 
                         <div class="product-short-description">
-                            <p>Smartphone XYZ je najnoviji model s naprednim značajkama, vrhunskom kamerom i dugotrajnom baterijom. Savršen izbor za sve koji traže vrhunski pametni telefon.</p>
+                            <p>Magic Keyboard s Touch ID i numeričkim tipkovnicama za Mac računala.</p>
                         </div>
 
                         <div class="product-meta">
                             <div class="meta-item">
                                 <span class="meta-label">SKU:</span>
-                                <span class="meta-value">SP12345</span>
+                                <span class="meta-value">MK2A3</span>
                             </div>
                             <div class="meta-item">
                                 <span class="meta-label">Dostupnost:</span>
@@ -88,11 +83,11 @@
                             </div>
                             <div class="meta-item">
                                 <span class="meta-label">Kategorija:</span>
-                                <span class="meta-value"><a href="#">Pametni telefoni</a></span>
+                                <span class="meta-value"><a href="#">Dodaci</a></span>
                             </div>
                             <div class="meta-item">
                                 <span class="meta-label">Brend:</span>
-                                <span class="meta-value"><a href="#">XYZ</a></span>
+                                <span class="meta-value"><a href="#">Apple</a></span>
                             </div>
                         </div>
 
@@ -100,18 +95,16 @@
                             <div class="option-group">
                                 <label>Boja:</label>
                                 <div class="color-options">
-                                    <div class="color-option active" style="background-color: #000000;" title="Crna"></div>
-                                    <div class="color-option" style="background-color: #FFFFFF; border: 1px solid #ddd;" title="Bijela"></div>
-                                    <div class="color-option" style="background-color: #0047AB;" title="Plava"></div>
+                                    <div class="color-option active" style="background-color: #FFFFFF; border: 1px solid #ddd;" title="White"></div>
+                                    <div class="color-option" style="background-color: #000000;" title="Black"></div>
                                 </div>
                             </div>
 
                             <div class="option-group">
-                                <label>Memorija:</label>
+                                <label>Varijanta:</label>
                                 <div class="variant-options">
-                                    <div class="variant-option active">128GB</div>
-                                    <div class="variant-option">256GB</div>
-                                    <div class="variant-option">512GB</div>
+                                    <div class="variant-option active">With Touch ID</div>
+                                    <div class="variant-option">Standard</div>
                                 </div>
                             </div>
                         </div>
@@ -440,5 +433,13 @@
     <script src="../js/ecommerce.js"></script>
     <script src="../js/product-detail.js"></script>
     <script src="../js/main.js"></script>
+    <script>
+        // Set default product ID to Magic Keyboard if no ID is provided
+        if (!window.location.search.includes('id=')) {
+            const url = new URL(window.location);
+            url.searchParams.set('id', '6'); // Magic Keyboard ID
+            window.history.replaceState({}, '', url);
+        }
+    </script>
 </body>
 </html>
