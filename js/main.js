@@ -179,20 +179,12 @@ function loadCookieBanner() {
 
     // Ako nisu, prikaži banner
     if (!cookieSettings) {
-        // Kreiraj div za cookie banner
-        const cookieBannerDiv = document.createElement('div');
-        cookieBannerDiv.id = 'cookie-banner';
-        cookieBannerDiv.className = 'cookie-banner';
-        cookieBannerDiv.setAttribute('role', 'dialog');
-        cookieBannerDiv.setAttribute('aria-labelledby', 'cookie-title');
-        cookieBannerDiv.setAttribute('aria-describedby', 'cookie-description');
-
-        // Učitaj sadržaj cookie bannera
         // Provjeri jesmo li u poddirektoriju (npr. /pages/)
         const isInSubdirectory = window.location.pathname.includes('/pages/');
         const basePath = isInSubdirectory ? '../' : './';
+        const cookiePath = `${basePath}components/cookie-banner.html`;
 
-        fetch(`${basePath}components/cookie-banner.html`)
+        fetch(cookiePath)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -200,13 +192,16 @@ function loadCookieBanner() {
                 return response.text();
             })
             .then(html => {
-                cookieBannerDiv.innerHTML = html;
-                document.body.appendChild(cookieBannerDiv);
+                // Dodaj HTML direktno u body
+                document.body.insertAdjacentHTML('beforeend', html);
 
                 // Prikaži banner s animacijom
                 setTimeout(() => {
-                    cookieBannerDiv.classList.add('show');
-                }, 1000);
+                    const banner = document.getElementById('cookie-banner');
+                    if (banner) {
+                        banner.classList.add('show');
+                    }
+                }, 500);
 
                 // Dodaj event listenere za gumbe
                 setupCookieBannerEvents();
@@ -278,6 +273,13 @@ function setupCookieBannerEvents() {
             }, 500);
         });
     }
+}
+
+// Test function to show cookie banner (for testing purposes)
+// Call this in browser console: testCookieBanner()
+function testCookieBanner() {
+    localStorage.removeItem('cookie-settings');
+    location.reload();
 }
 
 // Funkcija za poboljšanje pristupačnosti
