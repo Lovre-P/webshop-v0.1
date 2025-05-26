@@ -213,8 +213,9 @@
 /* Hero Section */
 .hero {
   background-image: url(../img/banners/hero.gif);
-  background-size: cover;
-  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: top;
   padding: var(--spacing-xxl) 0;
   margin-bottom: var(--spacing-xl);
 }
